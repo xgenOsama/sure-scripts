@@ -10,3 +10,7 @@ This demo is a clone of [this guide](https://www.linode.com/docs/guides/how-to-i
 - [Install and Deploy Grafana](./install_grafana.md)
 - [Install Blackbox Exporter](./install_blackbox_exporter.md)
 - [Install Alert Manager](./install_alert_manager.md)
+- [Install RabbitMQ Exporter](./install_rabbitmq_exporter.md)
+- [Install Redis Exporter](./install_redis_exporter.md)
+- [Install SQL Exporter](./install_sql_exporter.md)
+- [Install MySQL Exporter](./install_mysql_exporter.md)
