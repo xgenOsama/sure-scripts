@@ -10,4 +10,3 @@ This demo is a clone of [this guide](https://www.linode.com/docs/guides/how-to-i
 - [Install and Deploy Grafana](./install_grafana.md)
 - [Install Blackbox Exporter](./install_blackbox_exporter.md)
 - [Install Alert Manager](./install_alert_manager.md)
-```
