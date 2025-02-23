@@ -17,11 +17,13 @@
 
 3. Move the binary to `/usr/local/bin`:
     ```bash
+    cd redis_exporter-v1.29.0.linux-amd64/
     sudo mv redis_exporter /usr/local/bin/
     ```
 
 4. Create a systemd service file for Redis Exporter:
     ```bash
+    sudo useradd -rs /bin/false redis_exporter
     sudo nano /etc/systemd/system/redis_exporter.service
     ```
 
@@ -32,7 +34,11 @@
     After=network.target
 
     [Service]
-    User=nobody
+    User=redis_exporter
+    Group=redis_exporter
+    Type=simple
+    Restart=on-failure
+    RestartSec=5s
     ExecStart=/usr/local/bin/redis_exporter
 
     [Install]
@@ -50,5 +56,14 @@
     ```bash
     sudo systemctl status redis_exporter
     ```
+Add the client to monitor:
+
+```yaml
+  - job_name: "redis_collector"
+    scrape_interval: 20s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["localhost:9121"]
+```
 
 7. Access the Redis Exporter metrics at `http://localhost:9121/metrics`.
